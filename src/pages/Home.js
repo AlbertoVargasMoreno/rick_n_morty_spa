@@ -4,10 +4,9 @@ const Home = async () => {
     const characters = await getData();
     let characters_array = characters?.results.map(character => character);
     // console.log(characters, characters_array);
-    let view = "";
+    let view = `<div class="Characters">`;
     characters_array.forEach(character => {
         view += `
-        <div class="Characters">
             <article class="Character-item">
                 <a href="#/${character.id}">
                     <img src="${character.image}" alt="${character.name}">
@@ -15,9 +14,9 @@ const Home = async () => {
                     </img>
                 </a>
             </article>
-        </div>
-    `;
+        `;
     });
+    view += `</div>`
     return view;
 }
 
